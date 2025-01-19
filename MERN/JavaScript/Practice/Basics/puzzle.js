@@ -17,7 +17,6 @@ const getAns = (OP1, OP2, IDX) => {
 
 let i = 0
 while(i < 10){
-	console.log
 	const OPERAND1 = Math.floor(Math.random() * 10) % CAP
 	const OPERAND2 = Math.floor(Math.random() * 10) % CAP
 	const INDEX = Math.floor(Math.random() * 10) % operators.length
@@ -31,6 +30,7 @@ while(i < 10){
 		Score--
 		console.log(`Wrong! The correct is ${ANSWER}. Your score: ${Score}\n`)
 	}
+	Round++
 	i++
 }
 
