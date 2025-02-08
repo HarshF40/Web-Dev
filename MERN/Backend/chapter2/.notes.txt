@@ -1,0 +1,1 @@
+package.json --> will contain all the specification about our project
