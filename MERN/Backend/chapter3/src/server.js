@@ -1,3 +1,5 @@
+///////////////////////////////The tokens will be stored in the local storage as usual
+
 import express from "express";
 //the below imports will help to locate the frontend files
 import path, {dirname} from "path";
@@ -27,12 +29,13 @@ app.use(express.json());
 //.static is a built-in middleware in Express that serves static files from a specified directory
 //Now this will serve the files from //home/harsh/Web-Dev/MERN/Backend/chapter3/public
 app.use(express.static(path.join(__dirname, '../public')));
-
+console.log("hi0")
 // Serving up the HTML file from the /public directory
 app.get('/', (req, res) => {
     //to send the file
     //the path here will be //home/harsh/Web-Dev/MERN/Backend/chapter3/public/index.html
-    res.sendFile(path.join(__dirname, 'index.html'));
+    console.log("hi1");
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 //Routes

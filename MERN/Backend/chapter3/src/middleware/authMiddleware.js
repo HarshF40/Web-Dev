@@ -14,7 +14,9 @@ const authMiddleware = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
         if(err) {return res.status(401).json({message: "Invalid token"});}
         //decoded arguement is going to give us access to some of the core parameters of the verified user
-        req.userId = decode.id 
+        console.log("db is imp....", token);
+        req.userId = decode.id
+        console.log(req.userId)
         next(); //move to next thing (continue)
     });
 }

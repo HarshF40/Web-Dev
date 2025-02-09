@@ -177,31 +177,28 @@
     async function authenticate() {
         // access email and pass values
         const emailVal = email.value
-        const passVal = password.value
-        console.log(emailVal, passVal);
+        const passVal = password.value 
         // guard clauses... if authenticating, return
         if (
-            !isLoading ||
+            isLoading ||
             isAuthenticating ||
             !emailVal ||
             !passVal ||
             passVal.length < 6 ||
             !emailVal.includes('@')
         ) {
-            console.log(isLoading, isAuthenticating, emailVal, passVal, passVal.length, emailVal.includes('a'))
-            console.log('returning');
+            console.log("returning")
             return 
         }
-
-        console.log("passed 1");
         // reset error and set isAuthenticating to true
         error.style.display = 'none'
         isAuthenticating = true
         authBtn.innerText = 'Authenticating...'
-
+        console.log("above try catch auth")
         try {
             let data
             if (isRegistration) {
+                console.log("In reg");
                 // register an account
                 const response = await fetch(apiBase + 'auth/register', {
                     method: 'POST',
