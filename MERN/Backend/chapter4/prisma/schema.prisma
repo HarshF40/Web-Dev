@@ -1,0 +1,33 @@
+//schema -> specifies the structure of the database
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//we need to create a model for javascript to allow it to intepret
+//the SQL tables
+
+model User {
+  id        Int        @id @default(autoincrement()) //this will be a default parameter which means we dont need to specify when we create a new user and we want to auto increment as well
+  username  String     @unique //username will be a unique string
+  password  String
+  todos     Todo[] //this will create the relation between two tables
+}
+
+model Todo {
+  id        Int         @id @default(autoincrement())
+  task      String
+  completed Boolean     @default(false)
+  userId    Int
+  user      User        @relation(fields: [userId], references: [id])
+}
