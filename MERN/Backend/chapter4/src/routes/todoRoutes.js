@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     // after the prisma. we access/specify the model we defined... we have to access the models using the lowercase version on the model name
         const todos = await prisma.todo.findMany({ //find many because we want all the todo
             where: {
-                userId: req.userid
+                userId: req.userId
             }
         }) 
         res.json(todos);
