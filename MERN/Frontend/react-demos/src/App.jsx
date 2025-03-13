@@ -3,6 +3,7 @@ import Footer from "./components/Footer"
 import Greeting from "./components/Greeting"
 import GreetingNew from "./components/GreetingNew"
 import Header from "./components/Header"
+import IconComponent from "./components/IconComponent"
 import JSXRules from "./components/JSXRules"
 import Main from "./components/Main"
 import Password from "./components/Password"
@@ -10,11 +11,16 @@ import Person from "./components/Person"
 import Product from "./components/Product"
 import ProductInfo from "./components/ProductInfo"
 import ProductList from "./components/ProductList"
+import ProfileCard from "./components/ProfileCard"
+import StyledCard from "./components/StyledCard"
+import TrialButton from "./components/TrialButton"
+import TrialCopy from "./components/TrialCopy"
 import User from "./components/User"
 import UserList from "./components/UserList"
 import UserStatus from "./components/UserStatus"
 import Weather from "./components/Weather"
 import WelcomeMessage from "./components/WelcomeMessage"
+import { GrArchlinux } from "react-icons/gr";
 
 const App = () => {
 
@@ -25,6 +31,8 @@ const App = () => {
 
   return (
     <div>
+
+    <GrArchlinux />
 
     <Header />
     <Main />
@@ -61,6 +69,14 @@ const App = () => {
       </ul>
     )) }
     </div>
+
+    <StyledCard />
+    <ProfileCard />
+    <IconComponent />
+
+    <TrialButton />
+    <TrialCopy />
+
     </div>
   )
 }
