@@ -21,7 +21,7 @@ import UserStatus from "./components/UserStatus"
 import Weather from "./components/Weather"
 import WelcomeMessage from "./components/WelcomeMessage"
 import { GrArchlinux } from "react-icons/gr";
-import { useState, useEffect } from "react"
+import { useState, useEffect, createContext } from "react"
 import Component1 from "./components/Component1"
 import Component2 from "./components/Component2"
 import ExampleOne from "./components/ExampleOne"
@@ -36,13 +36,20 @@ import Switcher from "./components/Switcher"
 import BasicEffect from "./components/BasicEffect"
 import CounterEffect from "./components/CounterEffect"
 import FetchDataEffect from "./components/FetchDataEffect"
+import ComponentA from "./components/ComponentA"
 
 // We setup useEffect hook to run code when
 // component renders for the first time
 // whenever ut re-renders
 // some data in our component chnaged
 
+export const Data = createContext()
+export const Data1 = createContext()
+
 const App = () => {
+
+  const _name = "yuki"
+  const _age = "18"
 
   //useState return a initial value and a function to change that value
   //the function helps to rerender the changed data, without that we cannot directly render the chnaged value easily 
@@ -187,6 +194,12 @@ const App = () => {
     <BasicEffect />
     <CounterEffect />
     <FetchDataEffect />
+
+    <Data.Provider value={_name}>
+    <Data1.Provider value={_age}>
+    <ComponentA />
+    </Data1.Provider>
+    </Data.Provider>
 
     </div>
   )
