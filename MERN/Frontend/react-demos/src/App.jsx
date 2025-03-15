@@ -37,6 +37,9 @@ import BasicEffect from "./components/BasicEffect"
 import CounterEffect from "./components/CounterEffect"
 import FetchDataEffect from "./components/FetchDataEffect"
 import ComponentA from "./components/ComponentA"
+import UserProfile from "./components/UserProfile"
+import { UserProvider } from "./components/UserProvider"
+import UpdateUser from "./components/UpdateUser"
 
 // We setup useEffect hook to run code when
 // component renders for the first time
@@ -200,6 +203,11 @@ const App = () => {
     <ComponentA />
     </Data1.Provider>
     </Data.Provider>
+
+  <UserProvider>
+    <UserProfile />
+    <UpdateUser />
+  </UserProvider>
 
     </div>
   )
